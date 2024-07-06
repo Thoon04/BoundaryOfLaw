@@ -18,7 +18,6 @@
 		<div class="row">
 		<jsp:include page="Sidebar.jsp"></jsp:include>
 			<div class="col">
-			
 				<h2>Welcome from Laws</h2>
 			</div>
 		</div>
