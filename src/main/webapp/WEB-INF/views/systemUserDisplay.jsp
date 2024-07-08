@@ -21,7 +21,7 @@
 		<div class="row">
 		<jsp:include page="Sidebar.jsp"></jsp:include>
 			<div class="col" style="text-align: center;">
-				<h2 >Welcome</h2>
+				<jsp:include page="DisplayAllPdfFile.jsp"></jsp:include>
 			</div>
 		</div>
 	</div>
