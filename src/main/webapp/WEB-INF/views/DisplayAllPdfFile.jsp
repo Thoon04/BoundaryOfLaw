@@ -17,12 +17,6 @@
 
 </head>
 <body>
-	<div>
-		<jsp:include page="Nav.jsp"></jsp:include>
-		<div class="container-fluid">
-
-			<div class="row">
-				<jsp:include page="Sidebar.jsp"></jsp:include>
 				<div class="col">
 					<c:if test="${not empty message}">
 						<div class="alert alert-info">${message}</div>
@@ -72,9 +66,5 @@
 					</div>
 
 				</div>
-			</div>
-		</div>
-	</div>
-
 </body>
 </html>
