@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
 
-  <link href="/your-path-to-uicons/css/uicons-[your-style].css" rel="stylesheet"> 
+  <link href="/your-path-to-uicons/css/uicons-[your-style].css"> 
 
 
 
