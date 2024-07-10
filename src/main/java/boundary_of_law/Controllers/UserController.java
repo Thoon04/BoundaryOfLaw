@@ -56,14 +56,13 @@ public class UserController {
 		//post are wirte to get the data from form
 
 		@PostMapping("addUser")
-		public String addUser(@ModelAttribute("user") @Validated User user, BindingResult bResult, ModelMap map) {
+		public String addUser(@ModelAttribute("user") @Validated User user, BindingResult bResult, ModelMap map,RedirectAttributes rm) {
 		    if (bResult.hasErrors()) {
 		        return "adduser";
 		    }
 		    int rs = systemUserRepo.add(user);
-		    map.addAttribute("result", "true");
 			if(rs!=0) {
-				map.addAttribute("message","Register Successfully");
+				rm.addFlashAttribute("message", "You have Registered Successfully");
 			}if(rs==0) {
 				map.addAttribute("error_msg","In Adding User, Database something wrong.");
 				return "adduser";
@@ -87,7 +86,7 @@ public class UserController {
 			int rs=systemUserRepo.edit(user);
 			map.addAttribute("result", "true");
 			if(rs!=0) {
-				rm.addFlashAttribute("message", "Updating Successfully");
+				rm.addFlashAttribute("message", "You have Updated Successfully");
 			}
 			//repo updating fail due to Sql error or connection timeout 
 			if(rs==0) {
@@ -100,11 +99,12 @@ public class UserController {
 		}
 		
 		@GetMapping("deleteUser/{id}")
-		public String deleteUser(@PathVariable int id ,ModelMap map) {
+		public String deleteUser(@PathVariable int id ,ModelMap map,RedirectAttributes rm) {
+			String message = "";
 			int rs=systemUserRepo.delete(id);//get old author from repo
 			if(rs!=0) {
-				map.addAttribute("message","Delete Successfully");
-				map.addAttribute("result", "true");
+				message="You have Deleted User Successfully";
+				rm.addFlashAttribute("message", message);
 			}
 			return "redirect:/displayUser";
 		}
