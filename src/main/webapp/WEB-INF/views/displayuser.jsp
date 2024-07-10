@@ -7,13 +7,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet"
+<link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
-<link rel="stylesheet" type="text/css" href="resources/css/style.css" />
-<link rel="stylesheet"
+<link href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link  type="text/css" href="resources/css/style.css" />
+<link 
 	href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
 <style>
 body {
@@ -55,7 +54,7 @@ body {
 	margin: 5px 0px;
 	width: 50px;
 	height: 50px;
-	border: 2px solid #34f234;
+	border: 2px solid #ff0000;
 	text-align: center;
 	display: inline-block;
 	border-radius: 50%;
@@ -63,8 +62,8 @@ body {
 }
 
 .popup .icon i.fa {
-	font-size: 35px;
-	color: #34f234;
+	font-size: 30px;
+	background-image: linear-gradient(to right, #ff00ff 10%,#ff0000 100%);
 }
 
 .popup .title {
@@ -169,7 +168,7 @@ body {
 											<button type="button" class="btn btn-success  " onclick="">Update</button>
 									</a></td>
 									<td><a href="deleteUser/${user.user_id}">
-											<button type="submit" id="btnDelete"
+											<button type="button" id="btnDelete"
 												class="btn btn-secondary mb-3" data-bs-toggle="modal"
 												data-bs-target="#exampleModal">Delete</button>
 									</a></td>
@@ -184,6 +183,8 @@ body {
 					Swal.fire({
 						  title: "Do you want to delete selected user",
 						  showDenyButton: true,
+						  confirmButtonColor: "#ff0000",
+							denyButtonColor: "#474A59",
 						  confirmButtonText: "Delete",
 						  denyButtonText: "Cancel"
 						}).then((result) => {
