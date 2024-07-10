@@ -7,22 +7,15 @@
 <title>PDF Files List</title>
 <!-- Bootstrap CSS -->
 <link
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-	rel="stylesheet">
-<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
-<link rel="stylesheet"
+<link
 	href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
-<link rel="stylesheet" href="resources/css/style.css" />
+<link href="resources/css/style.css" />
 
 </head>
 <body>
-	<div>
-		<jsp:include page="Nav.jsp"></jsp:include>
-		<div class="container-fluid">
-
-			<div class="row">
-				<jsp:include page="Sidebar.jsp"></jsp:include>
 				<div class="col">
 					<c:if test="${not empty message}">
 						<div class="alert alert-info">${message}</div>
@@ -72,9 +65,5 @@
 					</div>
 
 				</div>
-			</div>
-		</div>
-	</div>
-
 </body>
 </html>
