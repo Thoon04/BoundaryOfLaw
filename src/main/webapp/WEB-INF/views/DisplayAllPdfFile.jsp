@@ -7,13 +7,12 @@
 <title>PDF Files List</title>
 <!-- Bootstrap CSS -->
 <link
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-	rel="stylesheet">
-<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
-<link rel="stylesheet"
+<link
 	href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
-<link rel="stylesheet" href="resources/css/style.css" />
+<link href="resources/css/style.css" />
 
 </head>
 <body>

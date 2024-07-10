@@ -7,11 +7,11 @@
 <head>
 <meta charset="UTF-8">
 <title>SystemUser Display</title>
-<link rel="stylesheet"
+<link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
-<link rel="stylesheet"
+<link
 	href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
-<link rel="stylesheet" href="resources/css/style.css" />
+<link href="resources/css/style.css" />
 </head>
 <body>
 	<div style="background: #e2e2e5" >
@@ -27,13 +27,8 @@
 	</div>
 	</div>
 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"></script>
 	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
-		integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ=="
-		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js"
-		integrity="sha512-u3fPA7V8qQmhBPNT5quvaXVa1mnnLSXUep5PS1qo5NRzHwG19aHmNJnj1Q8hpA/nBWZtZD4r4AX6YOt5ynLN2g=="
-		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js"></script>
 </body>
 </html>
