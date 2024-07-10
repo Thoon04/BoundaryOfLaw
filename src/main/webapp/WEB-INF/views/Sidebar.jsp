@@ -44,7 +44,7 @@
 					aria-current="page"> <i class="fa fa-users"></i> <span
 						class="ms-2 d-none d-sm-inline">Case management</span>
 				</a></li>
-				<li class="nav-item my-sm-1 my-2"><a href="#"
+				<li class="nav-item my-sm-1 my-2"><a href="/boundaryOfLaws/casetype"
 					class="nav-link text-white text-center text-sm-start"
 					aria-current="page"> <i class="fa fa-users"></i> <span
 						class="ms-2 d-none d-sm-inline">CaseType management</span>
