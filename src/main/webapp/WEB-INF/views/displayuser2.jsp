@@ -6,22 +6,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>User Management</title>
-<link rel="stylesheet" type="text/css"
+<title>Insert title here</title>
+<link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
-<link rel="stylesheet" type="text/css"
-	href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
-<link
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<link href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-	rel="stylesheet" />
-<link
-	href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"
-	rel="stylesheet" />
-
+<link href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <link type="text/css" href="resources/css/style.css" />
+<link href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
 <style>
 body {
 	background: #ddd;
@@ -46,14 +38,14 @@ body {
 	text-align: center;
 	opacity: 0;
 	top: -200%;
-	transform: translate(-50%, -50%) scale(0.5);
+	transform: translate(-50, -50%) scale(0.5);
 }
 
 .popup.active {
 	opacity: 1;
 	top: 50%;
 	transform: translate(-50%, -50%) scale(1);
-	transition: transform 300ms cubic-bezier(0.18, 0.89, 0.43, 1.19);
+	transition: trasform 300ms cubic-bezier(0.18, 0.89, 0.43, 1.19);
 	transition: opacity 300ms ease-in-out, top 1000ms ease-in-out, transform
 		1000ms ease-in-out;
 }
@@ -140,6 +132,7 @@ body {
 	<div>
 		<jsp:include page="Nav.jsp"></jsp:include>
 		<div class="container-fluid">
+
 			<div class="row">
 				<jsp:include page="Sidebar.jsp"></jsp:include>
 				<div class="col">
@@ -152,14 +145,14 @@ body {
 								<div class="title">Success!</div>
 								<div class="description">${message }</div>
 								<div class="dismiss-btn">
-									<button id="dismiss-popup-btn" onclick="Ok()">Ok</button>
+									<button id="dismiss-pupup-btn" onclick="Ok()">Ok</button>
 								</div>
 							</div>
 						</c:if>
 					</div>
-					<a href="addUser"><button type="button"
-							class="btn btn-success m-3">Add New User</button></a>
-					<table class=" table-hover m-3 display" id="userTable">
+					<a href="addUser"><button type="button" class="btn btn-success">Add
+							New User</button></a>
+					<table class="table table-striped" id="stduentTable display">
 						<thead>
 							<tr>
 								<th scope="col">User ID</th>
@@ -172,59 +165,65 @@ body {
 								<tr>
 									<td scope="row">${ user.user_id}</td>
 									<td>${user.name}</td>
-									<td><a href="editUser/${user.user_id}">
-											<button type="button" class="btn btn-success">Update</button>
-									</a> <a href="deleteUser/${user.user_id}">
-											<button type="button" class="btn btn-secondary btnDelete">Delete</button>
-									</a></td>
+									<td>
+										<a href="editUser/${user.user_id}">
+											<button type="button" class="btn btn-success" onclick="">Update</button>
+										</a>
+										<a href="deleteUser/${user.user_id}">
+											<button type="button" id="btnDelete" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button>
+										</a>
+									</td>									
 								</tr>
 							</c:forEach>
 						</tbody>
 					</table>
 					<script>
-	                        $(document).ready(function() {
-	                            $('#userTable').DataTable();
-	
-	                            $('.btnDelete').on('click', function(e) {
-	                                e.preventDefault();
-	                                var deleteUrl = $(this).closest('a').attr('href');
-	
-	                                Swal.fire({
-	                                    title: "Do you want to delete the selected user?",
-	                                    showDenyButton: true,
-	                                    confirmButtonColor: "#ff0000",
-	                                    denyButtonColor: "#474A59",
-	                                    confirmButtonText: "Delete",
-	                                    denyButtonText: "Cancel"
-	                                }).then((result) => {
-	                                    if (result.isConfirmed) {
-	                                        window.location.href = deleteUrl;
-	                                    }
-	                                });
-	                            });
-	
-	                            var messageFromController = "${message}";
-	                            if (messageFromController !== "") {
-	                                document.getElementsByClassName("popup")[0].classList.add("active");
-	                            }
-	                        });
-	
-	                        function Ok() {
-	                            document.getElementsByClassName("popup")[0].classList.remove("active");
-	                        };
-	                    </script>
+						$('#btnDelete').on('click',function(e){
+							console.log("clicked");
+							e.preventDefault();
+							Swal.fire({
+								  title: "Do you want to delete selected user",
+								  showDenyButton: true,
+								  confirmButtonColor: "#ff0000",
+									denyButtonColor: "#474A59",
+								  confirmButtonText: "Delete",
+								  denyButtonText: "Cancel"
+								}).then((result) => {
+								  /* Read more about isConfirmed, isDenied below */
+								  if (result.isConfirmed) {
+									  $('#display').attr('action', '/boundaryOfLaws/displayUser').submit();
+								  } else if (result.isDenied) {
+								    
+								  }
+								});
+						});
+						
+						var messageFromController= "${message}";
+						if(messageFromController!=""){
+							console.log(messageFromController);
+							document.getElementsByClassName("popup")[0].classList.add("active");
+						}
+						function Ok(){
+						    document.getElementsByClassName("popup")[0].classList.remove("active");
+						};
+				</script>
 				</div>
 			</div>
 		</div>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-	<script
-		src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+		src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js"></script>
 </body>
 </html>

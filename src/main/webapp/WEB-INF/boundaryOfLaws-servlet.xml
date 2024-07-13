@@ -30,7 +30,8 @@
   <bean id="systemUserRepo" class="boundary_of_law.persistance.SystemUserRepo"></bean>
   <bean id="enduserRepo" class="boundary_of_law.persistance.EndUserRepository"></bean> 
   <bean id="pdfFileRepository" class="boundary_of_law.persistance.PdfFileRepository"></bean>
-  
+  <bean id="casetypeRepo" class="boundary_of_law.persistance.CaseTypeRepository"></bean>
+
 
   <!-- Multipart Resolver Bean -->
   <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">

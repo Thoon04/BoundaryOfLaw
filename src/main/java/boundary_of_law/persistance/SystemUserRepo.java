@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
 import boundary_of_law.models.Login;
@@ -107,6 +109,8 @@ public class SystemUserRepo {
 			return users;
 		}
 		
+		
+		
 		//getByCode == getOne
 		public User getById(int user_id) {
 			User user=null;//initially null
@@ -202,5 +206,7 @@ public class SystemUserRepo {
 			}
 			return user;
 		}
+
+		
 
   }

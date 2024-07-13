@@ -13,6 +13,7 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/pdfbox-2.0.17.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/spring-websocket-5.3.19.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/spring-webmvc-5.3.19.jar"/>
@@ -30,7 +31,7 @@
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jBCrypt-0.4.1.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jboss-logging-3.4.3.Final.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jstl-1.2.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/mysql-connector-java-8.0.16.jar"/>
+	<classpathentry kind="lib" path="C:/JAVA 53/Jars/Lib for spring version 5.3.19/mysql-connector-java-8.0.28.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/slf4j-api-1.7.32.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/spring-aop-5.3.19.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/spring-aspects-5.3.19.jar"/>
@@ -52,4 +53,7 @@
 	<classpathentry kind="lib" path="D:/Downloads/pdfbox-2.0.17.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
+
+
+	
 

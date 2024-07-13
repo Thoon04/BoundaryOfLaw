@@ -7,8 +7,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"></script>
+
 <style>
 .eye-icon {
 	cursor: pointer;
@@ -25,11 +26,11 @@
 
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
-<link rel="stylesheet"
+<link
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script
-	src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+	
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
 <script>
     function validateForm() {
         // Clear previous error messages
@@ -212,13 +213,13 @@
 										<div class="form-check-inline">
 											<input type="radio" class="form-check-input" value="Male"
 												id="male" name="gender"
-												${user.gender == 'Male' ? 'checked' : ''} checked> <label
+												${user.gender == 'Male' ? 'checked' : ''}checked > <label
 												class="form-check-label" for="male"> Male </label>
 										</div>
 										<div class="form-check-inline">
 											<input type="radio" class="form-check-input" value="Female"
 												id="female" name="gender"
-												${Resgister.user.gender == 'Female' ? 'checked' : ''}>
+												${user.gender == 'Female' ? 'checked' : ''}>
 											<label class="form-check-label" for="female"> Female
 											</label>
 										</div>
@@ -235,7 +236,7 @@
 										class="form-control" value="user" id="role" name="role">
 
 									<div class="mb-4 text-center">
-										<input type="button" value="Add" id="btnAdd"
+										<input type="submit" value="Add" id="btnAdd"
 											class="btn btn-primary"> <input type="button"
 											value="Reset" id="btnReset" class="btn btn-warning">
 									</div>
@@ -246,6 +247,8 @@
 									Swal.fire({
 										  title: "Do you want Add new User?",
 										  showDenyButton: true,
+											confirmButtonColor: "#ff0000",
+											denyButtonColor: "#474A59",
 										  confirmButtonText: "Add",
 										  denyButtonText: "Cancel"
 										}).then((result) => {
