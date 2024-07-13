@@ -1,4 +1,5 @@
-
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -6,9 +7,22 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script
+		src="https://cdn.jsdelivr.net/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+<link type="text/css" href="style.css"/>
+<style>
+.nav-pills li a:hover{
+    background-color: rgb(66,66,243);
+}
+</style>
 </head>
 <body>
-	<div class="d-flex flex-column justify-content-between col-auto bg-dark min-vh-100">
+	<div
+		class="d-flex flex-column justify-content-between col-auto bg-dark min-vh-100">
 		<div class="mt-4">
 			<a
 				class="text-white d-none d-sm-inline text-decoration-none d-flex align-items-center ms-4"
@@ -44,7 +58,7 @@
 					aria-current="page"> <i class="fa fa-users"></i> <span
 						class="ms-2 d-none d-sm-inline">Case management</span>
 				</a></li>
-				<li class="nav-item my-sm-1 my-2"><a href="#"
+				<li class="nav-item my-sm-1 my-2"><a href="/boundaryOfLaws/casetype"
 					class="nav-link text-white text-center text-sm-start"
 					aria-current="page"> <i class="fa fa-users"></i> <span
 						class="ms-2 d-none d-sm-inline">CaseType management</span>
@@ -60,6 +74,8 @@
 
 		</div>
 
-					</div>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js" integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js" integrity="sha512-u3fPA7V8qQmhBPNT5quvaXVa1mnnLSXUep5PS1qo5NRzHwG19aHmNJnj1Q8hpA/nBWZtZD4r4AX6YOt5ynLN2g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 </html>

@@ -1,8 +1,12 @@
 package boundary_of_law.Controllers;
 import java.util.List;
-
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -12,6 +16,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -26,26 +31,31 @@ public class UserController {
 
 	@Autowired
 	EndUserRepository enduserRepo;
-
-
+//
+//	@Autowired
+//    private UserService userService;
 
 	// get are write to the appear form
 		@RequestMapping("systemusers")
-		public String displayAll(ModelMap map) {
+		public String displayAll(ModelMap map,@RequestParam(defaultValue = "0") int page,
+                @RequestParam(defaultValue = "5") int size) {
 			List<User> users = systemUserRepo.getAll();
 
 			map.addAttribute("user", users);// model
-			List<User> systemusers = systemUserRepo.getAll();
-
-			map.addAttribute("systemusers", systemusers);// model
-
 			return "systemUserDisplay";// view
 		}
 		
 		@RequestMapping("displayUser")
-		public String displayUser(ModelMap map) {
+		public String displayUser(ModelMap map ,@RequestParam(defaultValue = "0") int page,
+                @RequestParam(defaultValue = "5") int size) {
 			List<User> users = systemUserRepo.getAll();
-			map.addAttribute("users", users);// models
+	        map.addAttribute("users", users);
+//	        Pageable pageable = PageRequest.of(page, size);
+//	        Page<User> userPage = userService.findPaginated(pageable);
+//
+//	        map.addAttribute("userPage", userPage);
+			
+			// models
 			return "displayuser";// view
 		}
 		
@@ -56,14 +66,13 @@ public class UserController {
 		//post are wirte to get the data from form
 
 		@PostMapping("addUser")
-		public String addUser(@ModelAttribute("user") @Validated User user, BindingResult bResult, ModelMap map) {
+		public String addUser(@ModelAttribute("user") @Validated User user, BindingResult bResult, ModelMap map,RedirectAttributes rm) {
 		    if (bResult.hasErrors()) {
 		        return "adduser";
 		    }
 		    int rs = systemUserRepo.add(user);
-		    map.addAttribute("result", "true");
 			if(rs!=0) {
-				map.addAttribute("message","Register Successfully");
+				rm.addFlashAttribute("message", "You have Registered Successfully");
 			}if(rs==0) {
 				map.addAttribute("error_msg","In Adding User, Database something wrong.");
 				return "adduser";
@@ -87,7 +96,7 @@ public class UserController {
 			int rs=systemUserRepo.edit(user);
 			map.addAttribute("result", "true");
 			if(rs!=0) {
-				rm.addFlashAttribute("message", "Updating Successfully");
+				rm.addFlashAttribute("message", "You have Updated Successfully");
 			}
 			//repo updating fail due to Sql error or connection timeout 
 			if(rs==0) {
@@ -100,11 +109,12 @@ public class UserController {
 		}
 		
 		@GetMapping("deleteUser/{id}")
-		public String deleteUser(@PathVariable int id ,ModelMap map) {
+		public String deleteUser(@PathVariable int id ,ModelMap map,RedirectAttributes rm) {
+			String message = "";
 			int rs=systemUserRepo.delete(id);//get old author from repo
 			if(rs!=0) {
-				map.addAttribute("message","Delete Successfully");
-				map.addAttribute("result", "true");
+				message="You have Deleted User Successfully";
+				rm.addFlashAttribute("message", message);
 			}
 			return "redirect:/displayUser";
 		}
