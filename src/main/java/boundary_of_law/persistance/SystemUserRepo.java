@@ -178,5 +178,29 @@ public class SystemUserRepo {
 	        }
 	        return status;
 	    }
+		public User findByEmail(String email) {
+			User user = null;
+			String sql="SELECT * FROM user where  email=?";
+			try {
+				PreparedStatement ps=con.prepareStatement(sql);				
+				ps.setString(1, email);
+				ResultSet rs=ps.executeQuery();
+				while(rs.next()) {
+					user=new User();
+					user.setUser_id(rs.getInt("user_id"));
+					user.setName(rs.getString("name"));
+					user.setPassword(rs.getString("password"));
+					user.setEmail(rs.getString("email"));
+					user.setPhone(rs.getString("phone"));
+					user.setGender(rs.getString("gender"));
+					user.setNRC(rs.getString("NRC"));
+					user.setRole(rs.getString("role"));
+				}
+				
+			}catch(SQLException e) {
+				System.out.println("User findByEmail err: "+e);
+			}
+			return user;
+		}
 
   }

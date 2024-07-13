@@ -126,7 +126,7 @@ path {
 }
 
 .form {
-    margin: 40px;
+    margin: 10px;
     position: absolute;
 }
 
@@ -156,7 +156,7 @@ input::-moz-focus-inner {
 
 #submit {
     color: #707075;
-    margin-top: 40px;
+    margin-top: 20px;
     transition: color 300ms;
 }
 
@@ -166,7 +166,16 @@ input::-moz-focus-inner {
 
 #submit:active {
     color: #d0d0d2;
+    
 }
+.form_input{
+margin:20px;
+}
+.forget{
+color:#ff0000;
+}
+.login__check{
+margin-left:auto}
 </style>
 
 <script src="<c:url value="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" />"></script>
@@ -185,7 +194,7 @@ input::-moz-focus-inner {
                <div style="color: red;margin-left:40px;margin-top:20px;">${error}</div>
                     </c:if>
     		<div id="ValidationMsg" style="color: red;margin-left:40px;margin-top:20px; display: none;">Please fill out all fields.</div>
-                <svg viewBox="0 0 320 300">              
+                <svg viewBox="10 30 320 300">              
                     <defs>
                         <linearGradient inkscape:collect="always" id="linearGradient" x1="13" y1="193.49992"
                             x2="307" y2="193.49992" gradientUnits="userSpaceOnUse">
@@ -199,14 +208,18 @@ input::-moz-focus-inner {
                                   
                 <form:form onsubmit="return validateForm(event)" class="form" action="/boundaryOfLaws/createlogin"                 
                     method="post" modelAttribute="login">
-
-             	    <label for="email">Email</label>
+					<div class="form_input">
+						<label for="email">Email</label>
                     <input type="email" id="email" name="email">
                     <label for="password">Password</label>
                     <input type="password" id="password" name="password">
-                    <input style="color:white;" type="submit" id="submit" value="Submit"><br>
-                    
+					</div>
+					<input style="color:white;" type="submit" id="submit" value="Submit">
+                    <div class="login__check"> <br> <br>
+                    <a href="/boundaryOfLaws/forgetPassword" class="forget">forgotPassword?</a> </div>
                 </form:form>
+                 
+               
             </div>
         </div>
     </div>

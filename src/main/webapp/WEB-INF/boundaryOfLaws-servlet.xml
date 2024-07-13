@@ -30,12 +30,33 @@
   <bean id="systemUserRepo" class="boundary_of_law.persistance.SystemUserRepo"></bean>
   <bean id="enduserRepo" class="boundary_of_law.persistance.EndUserRepository"></bean> 
   <bean id="pdfFileRepository" class="boundary_of_law.persistance.PdfFileRepository"></bean>
+  
 
   <!-- Multipart Resolver Bean -->
   <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
     <property name="maxUploadSize" value="20848820" /> <!-- 20MB -->
     <property name="maxUploadSizePerFile" value="10485760" /> <!-- 10MB -->
   </bean>
+  
+  <bean class="boundary_of_law.Controllers.MailConfig" />
+
+ <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="smtp.gmail.com"/>
+        <property name="port" value="587"/>
+        <property name="username" value="thoonshweaintheint@gmail.com"/>
+        <property name="password" value="12345"/>
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.transport.protocol">smtp</prop>
+                <prop key="mail.smtp.auth">true</prop>
+                <prop key="mail.smtp.starttls.enable">true</prop>
+                <prop key="mail.debug">true</prop>
+            </props>
+        </property>
+    </bean>
+    
+ 
+  
   
   <!-- <mvc:annotation-driven conversion-service="conversionService"/> -->
 
