@@ -20,6 +20,8 @@
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/spring-tx-5.3.19.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/spring-security-web-5.5.6.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/spring-security-crypto-5.5.6.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/aspectjweaver-1.9.7.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/classmate-1.5.1.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/commons-fileupload-1.4.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/commons-io-2.4.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/hibernate-validator-6.2.0.Final.jar"/>
@@ -28,7 +30,7 @@
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jBCrypt-0.4.1.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jboss-logging-3.4.3.Final.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jstl-1.2.jar"/>
-	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/mysql-connector-java-8.0.28.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/mysql-connector-java-8.0.16.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/slf4j-api-1.7.32.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/spring-aop-5.3.19.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/spring-aspects-5.3.19.jar"/>
@@ -47,8 +49,7 @@
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/spring-oxm-5.3.19.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/spring-security-config-5.5.6.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/spring-security-core-5.5.6.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Acer/Downloads/Telegram Desktop/pdfbox-2.0.17.jar"/>
-	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/javax.mail-api-1.6.2.jar"/>
-	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/spring-context-support-5.3.24.jar"/>
+	<classpathentry kind="lib" path="D:/Downloads/pdfbox-2.0.17.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
+
