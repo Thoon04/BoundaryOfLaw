@@ -28,7 +28,7 @@ public class UserRepository {
             ps.setString(3, user.getEmail());
             ps.setString(4, user.getPhone());
             ps.setString(5, user.getGender());
-            ps.setString(6, user.getNrc());
+            ps.setString(6, user.getNRC());
             ps.setString(7, user.getRole());
 
             result = ps.executeUpdate();
@@ -50,7 +50,7 @@ public class UserRepository {
             ps.setString(3, user.getEmail());
             ps.setString(4, user.getPhone());
             ps.setString(5, user.getGender());
-            ps.setString(6, user.getNrc());
+            ps.setString(6, user.getNRC());
             ps.setString(7, user.getRole());
             ps.setInt(8, user.getUserId());
 
@@ -92,7 +92,7 @@ public class UserRepository {
                 user.setEmail(rs.getString("email"));
                 user.setPhone(rs.getString("phone"));
                 user.setGender(rs.getString("gender"));
-                user.setNrc(rs.getString("NRC"));
+                user.setNRC(rs.getString("NRC"));
                 user.setRole(rs.getString("role"));
             }
         } catch (SQLException e) {
@@ -116,7 +116,7 @@ public class UserRepository {
                 user.setEmail(rs.getString("email"));
                 user.setPhone(rs.getString("phone"));
                 user.setGender(rs.getString("gender"));
-                user.setNrc(rs.getString("NRC"));
+                user.setNRC(rs.getString("NRC"));
                 user.setRole(rs.getString("role"));
                 users.add(user);
             }

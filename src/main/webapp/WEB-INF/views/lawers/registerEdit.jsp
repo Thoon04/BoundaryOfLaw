@@ -25,84 +25,78 @@
 <title>Edit Lawyer</title>
 
 <style>
-
 .custom-edit-btn {
-    background-color: #453a3a !important;
-    color: white !important;
-    border: none !important;
+  background-color: #453a3a !important;
+  color: white !important;
+  border: none !important;
 }
 
 .custom-edit-btn:hover {
-    
-    color: rgb(255, 255, 255) !important;
-    transform: scale(1.05); /* Scale the button up by 5% */
+  color: rgb(255, 255, 255) !important;
+  transform: scale(1.05); /* Scale the button up by 5% */
 }
-  .blur-bg {
-        background-color: rgba(163, 157, 157, 0.5);
-        border: none !important;
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px); /* For Safari */
-    }
-  
 
+.blur-bg {
+  background-color: rgba(163, 157, 157, 0.5);
+  border: none !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* For Safari */
+}
 
 .preview-img {
-    max-width: 150px;
-    max-height: 150px;
-    margin-top: 15px;
-    border-radius: 50%; /* Makes the image round */
+  max-width: 150px;
+  max-height: 150px;
+  margin-top: 15px;
+  border-radius: 50%; /* Makes the image round */
 }
 
 hr {
-    color: #ccc;
+  color: #453a3a;
 }
 
-.form-control{
-	background: transparent !important;
-	color: rgb(0, 0, 0) !important;
-	border: 1px solid #ccc !important;
-	border-left: none !important;
-	border-right: none !important;
-	border-top: none !important;
-	border-radius: 0px !important;
-	
+.form-control {
+  background: transparent !important;
+  color: rgb(0, 0, 0) !important;
+  border: 1px solid #453a3a !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-top: none !important;
+  border-radius: 0px !important;
 }
 
-.form-select{
-	background: transparent !important;
-	color: rgb(0, 0, 0) !important;
-	border: 1px solid #ccc !important;
-	border-left: none !important;
-	border-right: none !important;
-	border-top: none !important;
-	border-radius: 0px !important;
+.form-select {
+  background: transparent !important;
+  color: rgb(0, 0, 0) !important;
+  border: 1px solid #453a3a !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-top: none !important;
+  border-radius: 0px !important;
 }
 
-option{
-	background-color: rgb(83, 74, 74) !important;
-	color: white !important;
+option {
+  background-color: rgb(83, 74, 74) !important;
+  color: white !important;
 }
+
 
 input:focus {
-	border: 1px solid rgb(83, 74, 74) !important;
-	border-left: none !important;
-	border-right: none !important;
-	border-top: none !important;
-	border-radius: 0px !important;
-	box-shadow: none !important;
+  border: 1px solid  rgb(45, 201, 253) !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-top: none !important;
+  border-radius: 0px !important;
+  box-shadow: none !important;
 }
 
 select:focus {
-	border: 1px solid  rgb(45, 201, 253) !important;
-	border-left: none !important;
-	border-right: none !important;
-	border-top: none !important;
-	border-radius: 0px !important;
-	box-shadow: none !important;
+  border: 1px solid  rgb(45, 201, 253) !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-top: none !important;
+  border-radius: 0px !important;
+  box-shadow: none !important;
 }
-
-
-
 
 
 </style>
@@ -122,7 +116,7 @@ function validateForm() {
     var currentState = $('#current_state').val();
     var price = $('#price').val().trim();
     var caseTypeId = $('#case_type_id').val();
-    var password = $('#password').val().trim();
+    
  
 
     var specialCharPattern = /[!@#$%^&*(),.?":{}|<>]/;
@@ -176,20 +170,6 @@ function validateForm() {
 
     if (!caseTypeId || caseTypeId == "choose") {
         $('#caseTypeError').text("Case Type is required");
-        isValid = false;
-    }
-
-    if (!password) {
-        $('#passwordError').text("Password is required");
-        isValid = false;
-    } else if (password.length < 8) {
-        $('#passwordError').text("Password must be at least 8 characters long");
-        isValid = false;
-    } else if (!specialCharPattern.test(password)) {
-        $('#passwordError').text("Password must contain at least one special character");
-        isValid = false;
-    } else if (!capitalLetterPattern.test(password)) {
-        $('#passwordError').text("Password must contain at least one capital letter");
         isValid = false;
     }
 
@@ -329,12 +309,12 @@ function validateForm() {
 
 
                         
-                       
+                       </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    
 </section>
 
 </form>

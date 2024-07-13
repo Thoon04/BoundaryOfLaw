@@ -77,7 +77,7 @@ public class LawerController {
         User user = new User();
         user.setName(name);
         user.setEmail(email);
-        user.setNrc(nrc);
+        user.setNRC(nrc);
         user.setPhone(phone);
         user.setGender(gender);
         user.setPassword(password);

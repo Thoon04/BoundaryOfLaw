@@ -7,7 +7,7 @@ public class User {
     private String email;
     private String phone;
     private String gender;
-    private String nrc;
+    private String NRC;
     private String role;
 
     
@@ -19,7 +19,7 @@ public class User {
     
     
 
-	public User(int userId, String name, String password, String email, String phone, String gender, String nrc,
+	public User(int userId, String name, String password, String email, String phone, String gender, String NRC,
 			String role) {
 		super();
 		this.userId = userId;
@@ -28,21 +28,21 @@ public class User {
 		this.email = email;
 		this.phone = phone;
 		this.gender = gender;
-		this.nrc = nrc;
+		this.NRC = NRC;
 		this.role = role;
 	}
 
 	
 
 
-	public User(String name, String password, String email, String phone, String gender, String nrc, String role) {
+	public User(String name, String password, String email, String phone, String gender, String NRC, String role) {
 		super();
 		this.name = name;
 		this.password = password;
 		this.email = email;
 		this.phone = phone;
 		this.gender = gender;
-		this.nrc = nrc;
+		this.NRC = NRC;
 		this.role = role;
 	}
 
@@ -97,12 +97,12 @@ public class User {
         this.gender = gender;
     }
 
-    public String getNrc() {
-        return nrc;
+    public String getNRC() {
+        return NRC;
     }
 
-    public void setNrc(String nrc) {
-        this.nrc = nrc;
+    public void setNRC(String NRC) {
+        this.NRC = NRC;
     }
 
     public String getRole() {

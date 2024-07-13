@@ -15,7 +15,7 @@ public class LawerInfo {
 	    private String email;
 	    private String phone;
 	    private String gender;
-	    private String nrc;
+	    private String NRC;
 	    private String role;
 	    private String casetype_name;
 	    
@@ -98,11 +98,11 @@ public class LawerInfo {
 		public void setGender(String gender) {
 			this.gender = gender;
 		}
-		public String getNrc() {
-			return nrc;
+		public String getNRC() {
+			return NRC;
 		}
-		public void setNrc(String nrc) {
-			this.nrc = nrc;
+		public void setNRC(String NRC) {
+			this.NRC = NRC;
 		}
 		public String getRole() {
 			return role;
