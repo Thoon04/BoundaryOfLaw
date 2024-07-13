@@ -134,6 +134,10 @@ body {
 .popup.active .dismiss-btn {
 	transition: all 300ms ease-in-out 400ms;
 }
+
+a {
+	text-decoration: none;
+}
 </style>
 </head>
 <body>
@@ -159,7 +163,8 @@ body {
 					</div>
 					<a href="addUser"><button type="button"
 							class="btn btn-success m-3">Add New User</button></a>
-					<table class=" table-hover m-3 display" id="userTable">
+					<table class=" table-hover mr-3 display order-column"
+						id="userTable">
 						<thead>
 							<tr>
 								<th scope="col">User ID</th>
