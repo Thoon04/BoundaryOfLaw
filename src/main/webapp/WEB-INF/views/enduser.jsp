@@ -7,6 +7,10 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href='<c:url value="/resources/css/bootstrap.min.css"/>'/>
 <script>
 function validateForm() {
@@ -253,6 +257,10 @@ function validateForm() {
 
 		</div>
 	</div>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js"></script>
 </body>
 </html>
