@@ -7,10 +7,8 @@
 <head>
 <meta charset="UTF-8">
 <title>User Management</title>
-<link rel="stylesheet" type="text/css"
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
-<link rel="stylesheet" type="text/css"
-	href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <link
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <link href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
@@ -18,9 +16,6 @@
 <link
 	href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"
 	rel="stylesheet" />
-
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <link type="text/css" href="resources/css/style.css" />
 <style>
 body {
@@ -190,7 +185,7 @@ a {
 	                        $(document).ready(function() {
 	                            $('#userTable').DataTable();
 	
-	                            $('.btnDelete').on('click', function(e) {
+	                            $('#userTable tbody').on('click', '.btnDelete', function(e) {
 	                                e.preventDefault();
 	                                var deleteUrl = $(this).closest('a').attr('href');
 	
@@ -222,11 +217,11 @@ a {
 			</div>
 		</div>
 	</div>
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+		src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"></script>
 	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+		src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js"></script>
 	<script
 		src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 	<script
