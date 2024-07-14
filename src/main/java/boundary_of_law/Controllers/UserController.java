@@ -1,8 +1,12 @@
 package boundary_of_law.Controllers;
 import java.util.List;
-
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -12,6 +16,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -26,26 +31,31 @@ public class UserController {
 
 	@Autowired
 	EndUserRepository enduserRepo;
-
-
+//
+//	@Autowired
+//    private UserService userService;
 
 	// get are write to the appear form
 		@RequestMapping("systemusers")
-		public String displayAll(ModelMap map) {
+		public String displayAll(ModelMap map,@RequestParam(defaultValue = "0") int page,
+                @RequestParam(defaultValue = "5") int size) {
 			List<User> users = systemUserRepo.getAll();
 
 			map.addAttribute("user", users);// model
-			List<User> systemusers = systemUserRepo.getAll();
-
-			map.addAttribute("systemusers", systemusers);// model
-
 			return "systemUserDisplay";// view
 		}
 		
 		@RequestMapping("displayUser")
-		public String displayUser(ModelMap map) {
+		public String displayUser(ModelMap map ,@RequestParam(defaultValue = "0") int page,
+                @RequestParam(defaultValue = "5") int size) {
 			List<User> users = systemUserRepo.getAll();
-			map.addAttribute("users", users);// models
+	        map.addAttribute("users", users);
+//	        Pageable pageable = PageRequest.of(page, size);
+//	        Page<User> userPage = userService.findPaginated(pageable);
+//
+//	        map.addAttribute("userPage", userPage);
+			
+			// models
 			return "displayuser";// view
 		}
 		

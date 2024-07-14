@@ -1,9 +1,13 @@
 package boundary_of_law.models;
 
 public class CaseType {
-
-	int id;
-	String name;
+	private int id;
+	private String name;
+	
+	public CaseType(){
+		
+	}
+	
 	public int getId() {
 		return id;
 	}
@@ -19,3 +23,4 @@ public class CaseType {
 	
 	
 }
+

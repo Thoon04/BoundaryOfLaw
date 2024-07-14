@@ -51,7 +51,7 @@ public class EndUserRepository {
 	// Update
 	public int edit(EndUser enduser) {
 		int result = 0;
-		String sql = "UPDATE  enduser SET name=?,email=?,password=?,phone=?,NRC=?,current_state=?,gender?,cases=?,type=?,where id=";
+		String sql = "UPDATE  enduser SET name=?,email=?,password=?,phone=?,NRC=?,current_state=?,gender?,cases=?,type=? where id=";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
