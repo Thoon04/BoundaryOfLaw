@@ -86,6 +86,11 @@ public class EndUserController {
 			enduserRepo.delete(id);
 			return "redirect:/enduser";
 		}
+		@RequestMapping("/createAcc")
+		public String accountCreate() {
+			
+			return "createAccount";
+		}
 
 	}
 

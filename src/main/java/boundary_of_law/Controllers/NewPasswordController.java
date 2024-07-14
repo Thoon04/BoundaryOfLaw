@@ -23,7 +23,7 @@ public class NewPasswordController {
             model.addAttribute("message", "Session expired. Please try again.");
             return "redirect:/forgetPassword";
         }
-        return "layout/newPassword";
+        return "newPassword";
     }
 
     @PostMapping("/newPassword")
@@ -33,8 +33,8 @@ public class NewPasswordController {
         if (email != null && password1 != null && !password1.isEmpty()) {
             try {
              
-                Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/community_hub", "root", "root");
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/lawdb", "root", "root");
                 PreparedStatement ps = con.prepareStatement("UPDATE user SET password = ? WHERE email = ?");
                 ps.setString(1, password1);
                 ps.setString(2, email);
@@ -50,6 +50,6 @@ public class NewPasswordController {
                 redirectAttributes.addFlashAttribute("status", "resetFailed");
             }
         }
-        return "layout/newPassword";
+        return "newPassword";
     }
 }

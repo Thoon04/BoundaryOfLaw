@@ -9,7 +9,7 @@
     </head>
     <body>
         <h2>Enter New Password</h2>
-        <form  th:action="/boundaryOfLaws/newPassword" method="post" >
+        <form  action="/boundaryOfLaws/newPassword" method="post" >
             <label for="password1">New Password:</label><br>
             <input type="password" id="password1" name="password1"><br>
             <input type="submit" value="Submit">

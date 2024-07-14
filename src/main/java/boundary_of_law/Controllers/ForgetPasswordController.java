@@ -12,8 +12,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import boundary_of_law.models.User;
+import boundary_of_law.persistance.SystemUserRepo;
+
 @Controller
 public class ForgetPasswordController {
+
+    @Autowired
+    SystemUserRepo systemUserRepo;
 
     @Autowired
     @Qualifier("mailSender")
@@ -21,25 +27,32 @@ public class ForgetPasswordController {
 
     @PostMapping("/forgetPasswordPost")
     public String forgetPasswordPost(@RequestParam("email") String email, Model model, HttpSession session) {
-
-        int otpValue = generateOtp();
-
         try {
-            // Logic to send OTP to the email
-            SimpleMailMessage message = createOtpEmail(email, otpValue);
-            sendOtpByEmail(message,javaMailSender);
+            // Check if email exists
+            User user = systemUserRepo.findByEmail(email);
 
-            model.addAttribute("message", "OTP is sent to your email id");
-            model.addAttribute("otp", otpValue);
-            model.addAttribute("email", email);
+            if (user != null && user.getEmail() !=null) {
+                // Generate OTP
+                int otpValue = generateOtp();
 
-            session.setAttribute("otp", otpValue);
-            session.setAttribute("email", email);
+                // Logic to send OTP to the email
+                SimpleMailMessage message = createOtpEmail(email, otpValue);
+                sendOtpByEmail(message, javaMailSender);
 
-            return "enterOTP";
+                model.addAttribute("message", "OTP is sent to your email id");
+                model.addAttribute("otp", otpValue);
+                model.addAttribute("email", email);
+
+                session.setAttribute("otp", otpValue);
+                session.setAttribute("email", email);
+
+                return "enterOTP";
+            } else {
+                model.addAttribute("error", "Invalid email.");
+                return "forgetPassword";
+            }
         } catch (Exception e) {
             model.addAttribute("error", "Failed to send OTP. Please try again.");
-            System.out.println();
             return "forgetPassword";
         }
     }

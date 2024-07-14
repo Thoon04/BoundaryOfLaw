@@ -216,6 +216,7 @@ margin-left:auto}
 					</div>
 					<input style="color:white;" type="submit" id="submit" value="Submit">
                     <div class="login__check"> <br> <br>
+                    <p class="message">Not registered? <a href="/boundaryOfLaws/createAcc"> Create an account</a></p>
                     <a href="/boundaryOfLaws/forgetPassword" class="forget">forgotPassword?</a> </div>
                 </form:form>
                  
