@@ -31,6 +31,11 @@
   <bean id="enduserRepo" class="boundary_of_law.persistance.EndUserRepository"></bean> 
   <bean id="pdfFileRepository" class="boundary_of_law.persistance.PdfFileRepository"></bean>
   <bean id="casetypeRepo" class="boundary_of_law.persistance.CaseTypeRepository"></bean>
+  <bean id="userRepository" class="boundary_of_law.persistance.UserRepository"></bean>
+  <bean id="lawerInfoRepo" class="boundary_of_law.persistance.LawerInfoRepository"></bean>
+  <bean id="lawerRepository" class="boundary_of_law.persistance.LawerRepository"></bean>
+  <bean id="applyCaseRepo" class="boundary_of_law.persistance.ApplyCaseRepository"></bean>
+  
 
   <!-- Multipart Resolver Bean -->
   <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">

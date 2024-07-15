@@ -272,7 +272,7 @@ function validateForm() {
                         <div class="row mb-3">
                             <label for="NRC" class="col-sm-3 col-form-label"><i class="fas fa-id-card"></i> NRC</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="NRC" name="NRC" value="${lawer.nrc}">
+                                <input type="text" class="form-control" id="NRC" name="NRC" value="${lawer.NRC}">
                                 <p id="nrcError" class="text-danger error-message"></p>
                             </div>
                         </div>

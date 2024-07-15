@@ -5,8 +5,6 @@ import java.util.Base64;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -19,10 +17,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import boundary_of_law.models.ApplyCase;
 import boundary_of_law.models.CaseType;
 import boundary_of_law.models.Lawer;
 import boundary_of_law.models.LawerInfo;
 import boundary_of_law.models.User;
+import boundary_of_law.persistance.ApplyCaseRepository;
 import boundary_of_law.persistance.CaseTypeRepository;
 import boundary_of_law.persistance.LawerInfoRepository;
 import boundary_of_law.persistance.LawerRepository;
@@ -48,14 +48,18 @@ public class LawerController {
     @Autowired
     LawerInfoRepository lawerInfoRepo;
 
-    @GetMapping("/")
+    @Autowired
+    ApplyCaseRepository ACRepo;
+
+    
+    @GetMapping("/lawyer-register")
     public String register(Model model)  {
     	
         List<CaseType> caseTypes = caseTypeRepo.getAll();
         model.addAttribute("case_types", caseTypes);
         return "lawers/register";
     }
-    @PostMapping("/")
+    @PostMapping("/lawyer-register")
     public String submitForm(ModelMap map, 
             @RequestParam("name") String name,
             @RequestParam("email") String email,
@@ -124,11 +128,11 @@ public class LawerController {
             }
 
         }
-        return "redirect:/";
+        return "redirect:/lawyer-register";
     }
     
   
-    @RequestMapping("profile")
+    @RequestMapping("lawyer-profile")
     public String profile(ModelMap map,HttpSession session) {
     	String userIdString=(String) session.getAttribute("LoginUserId"); 
     	if( userIdString==null||userIdString.isEmpty()||userIdString.isBlank()) {
@@ -192,7 +196,7 @@ public class LawerController {
 		
 }
     
-    @RequestMapping("dashboard")
+    @RequestMapping("lawyer-dashboard")
     public String dashboard(ModelMap map,HttpSession session) {
     	String userIdString=(String) session.getAttribute("LoginUserId"); 
     	if( userIdString==null||userIdString.isEmpty()||userIdString.isBlank()) {
@@ -207,6 +211,57 @@ public class LawerController {
     	return "lawers/dashboard";
     }
     
+    @GetMapping("lawyer-pendingApplyList")
+    public String applyPending(ModelMap map,HttpSession session) {
+    	
+    	String userIdString=(String) session.getAttribute("LoginUserId"); 
+    	if( userIdString==null||userIdString.isEmpty()||userIdString.isBlank()) {
+    		userIdString="5";
+    	//return "login"
+    	}
+    	int userId= Integer.parseInt(userIdString); 
+    	
+    	LawerInfo lawerinfo=lawerRepository.lawerAllInfoById(userId);
+    	
+    	List<ApplyCase>applyCases=ACRepo.getPendingList(lawerinfo.getId());
+    	map.addAttribute("PAList",applyCases);
+    	return "lawers/pendingApplyList";
+    }
+   
+    
+    @GetMapping("lawyer-confirmApplyList")
+    public String applyconfirm(ModelMap map,HttpSession session) {
+    	
+    	String userIdString=(String) session.getAttribute("LoginUserId"); 
+    	if( userIdString==null||userIdString.isEmpty()||userIdString.isBlank()) {
+    		userIdString="5";
+    	//return "login"
+    	}
+    	int userId= Integer.parseInt(userIdString); 
+    	
+    	LawerInfo lawerinfo=lawerRepository.lawerAllInfoById(userId);
+    	
+    	List<ApplyCase>applyCases=ACRepo.getConfirmList(lawerinfo.getId());
+    	map.addAttribute("CAList",applyCases);
+    	return "lawers/confirmApplyList";
+    }
+    
+    @GetMapping("lawyer-rejectApplyList")
+    public String applyreject(ModelMap map,HttpSession session) {
+    	
+    	String userIdString=(String) session.getAttribute("LoginUserId"); 
+    	if( userIdString==null||userIdString.isEmpty()||userIdString.isBlank()) {
+    		userIdString="5";
+    	//return "login"
+    	}
+    	int userId= Integer.parseInt(userIdString); 
+    	
+    	LawerInfo lawerinfo=lawerRepository.lawerAllInfoById(userId);
+    	
+    	List<ApplyCase>applyCases=ACRepo.getRejectList(lawerinfo.getId());
+    	map.addAttribute("RAList",applyCases);
+    	return "lawers/rejectApplyList";
+    }
     
     
     

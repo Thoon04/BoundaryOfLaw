@@ -1,5 +1,5 @@
-
 package boundary_of_law.persistance;
+
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -53,7 +53,7 @@ public class UserRepository {
             ps.setString(5, user.getGender());
             ps.setString(6, user.getNRC());
             ps.setString(7, user.getRole());
-            ps.setInt(8, user.getUserId());
+            ps.setInt(8, user.getUser_id());
 
             result = ps.executeUpdate();
         } catch (SQLException e) {
@@ -87,7 +87,7 @@ public class UserRepository {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 user = new User();
-                user.setUserId(rs.getInt("user_id"));
+                user.setUser_id(userId);
                 user.setName(rs.getString("name"));
                 user.setPassword(rs.getString("password"));
                 user.setEmail(rs.getString("email"));
@@ -111,7 +111,7 @@ public class UserRepository {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 User user = new User();
-                user.setUserId(rs.getInt("user_id"));
+                user.setUser_id(rs.getInt("user_id"));
                 user.setName(rs.getString("name"));
                 user.setPassword(rs.getString("password"));
                 user.setEmail(rs.getString("email"));

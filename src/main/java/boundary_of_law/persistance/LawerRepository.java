@@ -1,5 +1,6 @@
 package boundary_of_law.persistance;
 
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,6 +12,7 @@ import boundary_of_law.models.LawerInfo;
 
 public class LawerRepository {
 
+	
     // Database connection
     private static Connection con = null;
 
@@ -54,7 +56,7 @@ public class LawerRepository {
 
             result = ps.executeUpdate();
         } catch (SQLException e) {
-            System.out.println("Lawer update error: " + e.getMessage());
+            System.out.println("Lawer update error: " + e.getErrorCode());
         }
         return result;
     }
@@ -160,7 +162,7 @@ public class LawerRepository {
 	                lawer.setEmail(rs.getString("email"));
 	                lawer.setPhone(rs.getString("phone"));
 	                lawer.setGender(rs.getString("gender"));
-	                lawer.setNrc(rs.getString("NRC"));
+	                lawer.setNRC(rs.getString("NRC"));
 	                lawer.setRole(rs.getString("role"));
 	                lawer.setCasetype_name(rs.getString("casetype_name"));
 	            }
