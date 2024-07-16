@@ -47,7 +47,10 @@
 	crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
@@ -189,7 +192,7 @@
 
 			<div class="card my-5" style= "background-color:  rgb(205, 200, 200)">
 				<div class="card-body text-black">
-					<form action="/boundaryOfLaws/" method="post"
+					<form action="/boundaryOfLaws/lawyer-register" method="post"
 						enctype="multipart/form-data" onsubmit="return validateForm();">
 						<h4 class="text-center text-dark mb-4">
 							Lawyer Registration<i class="fas fa-gavel"></i>
@@ -221,7 +224,7 @@
 								<label for="NRC" class="form-label" style="margin-left: 15px">NRC</label>
 								<div class="col-sm-12">
 									<input type="text" class="form-control" id="NRC"
-										value="${user.nrc}" name="NRC">
+										value="${user.NRC}" name="NRC">
 									<p id="nrcError" class="text-danger error-message"></p>
 									<p class="text-danger error-message">${nrcError}</p>
 								</div>
@@ -414,14 +417,9 @@
 
 
 	<c:if test="${not empty success_msg}">
-		<script>
-            swal({
-                title: "Success!",
-                text: "${success_msg}",
-                icon: "success",
-                button: "OK",
-            });
-        </script>
+		<div class="">
+		
+		</div>
 	</c:if>
 
 	<script>

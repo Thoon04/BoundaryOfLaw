@@ -38,7 +38,7 @@ public class LawerInfoRepository {
 	                lawer.setEmail(rs.getString("email"));
 	                lawer.setPhone(rs.getString("phone"));
 	                lawer.setGender(rs.getString("gender"));
-	                lawer.setNrc(rs.getString("NRC"));
+	                lawer.setNRC(rs.getString("NRC"));
 	                lawer.setRole(rs.getString("role"));
 	                lawer.setCasetype_name(rs.getString("casetype_name"));
 	                lawers.add(lawer);
@@ -48,6 +48,5 @@ public class LawerInfoRepository {
 	        }
 	        return lawers;
 	    }
-	
 	
 }

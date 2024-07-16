@@ -1,7 +1,7 @@
 package boundary_of_law.models;
 
 public class User {
-    private int userId;
+    private int user_id;
     private String name;
     private String password;
     private String email;
@@ -19,10 +19,10 @@ public class User {
     
     
 
-	public User(int userId, String name, String password, String email, String phone, String gender, String NRC,
+	public User(int user_id, String name, String password, String email, String phone, String gender, String NRC,
 			String role) {
 		super();
-		this.userId = userId;
+		this.user_id = user_id;
 		this.name = name;
 		this.password = password;
 		this.email = email;
@@ -49,12 +49,12 @@ public class User {
 
 
 	// Getters and Setters
-    public int getUserId() {
-        return userId;
+    public int getUser_id() {
+        return user_id;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
     }
 
     public String getName() {

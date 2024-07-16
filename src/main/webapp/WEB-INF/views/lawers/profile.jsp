@@ -271,7 +271,7 @@ body {
                     <p class="mb-0">NRC</p>
                   </div>
                   <div class="col-sm-8">
-                    <p class="mb-0">${lawer.nrc }</p>
+                    <p class="mb-0">${lawer.NRC }</p>
                   </div>
                 </div>
                 <hr />
