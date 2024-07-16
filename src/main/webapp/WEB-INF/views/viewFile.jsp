@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 	
 	
 <!DOCTYPE html>
@@ -22,10 +23,10 @@
 				<div class="col">
 					<h1>Viewing PDF File: ${pdfFile.name}</h1>
 
-    <pre>
-        ${textContent}
-    </pre>
-				
+   			        <c:forEach var="imageUrl" items="${imageUrls}">
+         				   <img src="${imageUrl}" alt="PDF Page" style="width: 100%; max-width: auto; height: auto;"><br>
+       				 </c:forEach>
+			
 				</div>
 			</div>
 		</div>

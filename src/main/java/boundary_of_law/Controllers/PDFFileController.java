@@ -1,7 +1,7 @@
 package boundary_of_law.Controllers;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
-import org.apache.pdfbox.text.PDFTextStripper;
+import org.apache.pdfbox.rendering.PDFRenderer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -12,10 +12,17 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
+
+import javax.imageio.ImageIO;
+
 import java.io.InputStream;
 
 
@@ -113,9 +120,9 @@ public class PDFFileController {
         try {
             PDFFile pdfFile = pdfFileRepository.getFile(id);
             if (pdfFile != null) {
-                String textContent = extractTextFromPdf(pdfFile.getContent());
+                List<String> imageUrls = convertPDFToImages(pdfFile.getContent(), id);
                 model.addAttribute("pdfFile", pdfFile);
-                model.addAttribute("textContent", textContent);
+                model.addAttribute("imageUrls", imageUrls);
                 return "viewFile";
             } else {
                 model.addAttribute("errorMessage", "File not found");
@@ -127,12 +134,20 @@ public class PDFFileController {
         }
     }
     
-    private String extractTextFromPdf(byte[] pdfContent) throws IOException {
+    private List<String> convertPDFToImages(byte[] pdfContent, Long id) throws IOException {
+        List<String> imageUrls = new ArrayList<>();
         try (InputStream inputStream = new ByteArrayInputStream(pdfContent);
              PDDocument document = PDDocument.load(inputStream)) {
-            PDFTextStripper stripper = new PDFTextStripper();
-            return stripper.getText(document);
+            PDFRenderer pdfRenderer = new PDFRenderer(document);
+            for (int page = 0; page < document.getNumberOfPages(); page++) {
+                BufferedImage bim = pdfRenderer.renderImageWithDPI(page, 300);
+                ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+                ImageIO.write(bim, "png", outputStream);
+                byte[] imageBytes = outputStream.toByteArray();
+                imageUrls.add("data:image/png;base64," + Base64.getEncoder().encodeToString(imageBytes));
+            }
         }
+        return imageUrls;
     }
 
 }
