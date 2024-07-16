@@ -17,11 +17,11 @@ import boundary_of_law.persistance.SystemUserRepo;
 @Controller
 public class HomeController {
 
-//	@RequestMapping("/")
-//	public ModelAndView home() {
-//		return new ModelAndView ("login","user",new User());
-//	}
-//	
+	@RequestMapping("/")
+	public ModelAndView home() {
+		return new ModelAndView ("home","user",new User());
+	}
+	
 
 	
 //	@RequestMapping("/")

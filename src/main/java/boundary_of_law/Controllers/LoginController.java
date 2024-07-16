@@ -20,7 +20,7 @@ public class LoginController {
     @Autowired
     private SystemUserRepo systemUserRepo;
 
-    @GetMapping("/")
+    @GetMapping("/createlogin")
     public ModelAndView showLogin() {
         return new ModelAndView("login", "login", new Login());
     }
